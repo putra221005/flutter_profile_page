@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'profile_page.dart';
 
 void main() {
@@ -24,23 +25,9 @@ class _MyWidgetState extends State<EditProfile> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return ProfilePage();
-                    },
-                  ),
-                );
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              )),
           centerTitle: true,
           title: Text("EDIT PROFILE"),
-          backgroundColor: Color.fromARGB(255, 255, 0, 0),
+          backgroundColor: Colors.blue.shade900,
         ),
         body: ListView(
           padding: EdgeInsets.zero,
@@ -56,7 +43,7 @@ class _MyWidgetState extends State<EditProfile> {
                 child: Padding(
                   padding: EdgeInsets.all(8),
                   child: TextField(
-                    maxLines: 5,
+                    maxLines: 4,
                     decoration:
                         InputDecoration(hintText: "Masukkan Biodata Anda"),
                     style: TextStyle(color: Colors.black),
@@ -64,10 +51,45 @@ class _MyWidgetState extends State<EditProfile> {
                 ),
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 10),
             buildContent("Full Name", "Masukkan Nama Lengkap Anda", false),
             buildContent("Email", "Masukkan Email", false),
-            buildContent("Password", "********", true),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade900,
+                      minimumSize: Size(150, 40)),
+                  onPressed: () {
+                    setState(() {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) {
+                          return ProfilePage();
+                        },
+                      ));
+                    });
+                  },
+                  child: Text(
+                    "Cancel",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade900,
+                      minimumSize: Size(150, 40)),
+                  onPressed: () {},
+                  child: Text(
+                    "Save",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ),
+              ],
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            )
           ],
         ),
       ),
@@ -78,8 +100,8 @@ class _MyWidgetState extends State<EditProfile> {
         child: Stack(
           children: [
             Container(
-              width: 120,
-              height: 120,
+              width: 97,
+              height: 97,
               decoration: BoxDecoration(
                   border: Border.all(width: 4, color: Colors.white),
                   shape: BoxShape.circle,
@@ -91,13 +113,13 @@ class _MyWidgetState extends State<EditProfile> {
               bottom: 0,
               right: 0,
               child: Container(
-                height: 42,
-                width: 42,
+                height: 38,
+                width: 38,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                      width: 2, color: Color.fromARGB(255, 255, 255, 255)),
-                  color: Color.fromARGB(255, 255, 0, 0),
+                      width: 1, color: Color.fromARGB(255, 255, 255, 255)),
+                  color: Colors.blue.shade900,
                 ),
                 child: IconButton(
                   onPressed: () {},

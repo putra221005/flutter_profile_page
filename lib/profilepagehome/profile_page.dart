@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_page/profilepagehome/edit_password.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'edit_profile.dart';
 
 void main() {
@@ -23,23 +25,22 @@ class _MyWidgetState extends State<ProfilePage> {
         appBar: AppBar(
           centerTitle: true,
           title: Text("PROFILE"),
-          backgroundColor: Color.fromARGB(255, 255, 0, 0),
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+          backgroundColor: Colors.blue.shade900,
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.menu_outlined))
+          ],
         ),
         body: ListView(
           children: <Widget>[
             Container(
               child: Container(
                 width: double.infinity,
-                height: 180,
+                height: 130,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                      Color.fromARGB(255, 255, 0, 0),
-                      Color.fromARGB(255, 255, 123, 0)
-                    ])),
+                  image: DecorationImage(image: NetworkImage("https://p4.wallpaperbetter.com/wallpaper/343/997/87/abstract-blue-artistic-cgi-wallpaper-preview.jpg"),
+                  fit: BoxFit.cover
+                  ),
+                ),
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,21 +49,21 @@ class _MyWidgetState extends State<ProfilePage> {
                       CircleAvatar(
                         backgroundImage: NetworkImage(
                             "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"),
-                        radius: 30,
+                        radius: 25,
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
                         "Muhammad Yusuf Maulana Putra",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
                         "[Title]",
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(color: Colors.white, fontSize: 10),
                       ),
                     ],
                   ),
@@ -76,14 +77,29 @@ class _MyWidgetState extends State<ProfilePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
                     Container(
-                      color: Color.fromARGB(255, 236, 236, 236),
+                      color: Color.fromARGB(255, 240, 240, 240),
+                      width: double.infinity,
                       child: ListTile(
-                        leading: Icon(Icons.location_history),
+                        leading: Icon(Icons.wb_sunny_outlined),
+                        title: Text("Theme"),
+                        trailing: Icon(Icons.arrow_right),
+                        iconColor: Colors.black87,
+                        onTap: () {},
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Container(
+                      color: Color.fromARGB(255, 240, 240, 240),
+                      child: ListTile(
+                        leading: Icon(Icons.person_outline),
                         title: Text("Edit Profile"),
                         trailing: Icon(Icons.arrow_right),
+                        iconColor: Colors.black87,
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
@@ -96,41 +112,54 @@ class _MyWidgetState extends State<ProfilePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 3,
                     ),
                     Container(
-                      color: Color.fromARGB(255, 236, 236, 236),
+                      color: Color.fromARGB(255, 240, 240, 240),
                       width: double.infinity,
                       child: ListTile(
-                        leading: Icon(Icons.info),
+                        leading: Icon(Icons.key),
+                        title: Text("Change Password"),
+                        trailing: Icon(Icons.arrow_right),
+                        iconColor: Colors.black87,
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return EditPassword();
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Container(
+                      color: Color.fromARGB(255, 240, 240, 240),
+                      width: double.infinity,
+                      child: ListTile(
+                        leading: Icon(Icons.info_outline),
                         title: Text("About"),
                         trailing: Icon(Icons.arrow_right),
+                        iconColor: Colors.black87,
                         onTap: () {},
                       ),
                     ),
                     SizedBox(
-                      height: 80,
+                      height: 30,
                     ),
                     Container(
-                      child: Center(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Color.fromARGB(255, 255, 0, 0),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25))),
-                          child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              "Save Changes",
-                              style: TextStyle(
-                                fontSize: 17,
-                                letterSpacing: 2,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
+                      color: Color.fromARGB(255, 240, 240, 240),
+                      width: double.infinity,
+                      child: ListTile(
+                        leading: Icon(Icons.power_settings_new),
+                        iconColor: Color.fromARGB(255, 255, 0, 0),
+                        title: Text("Logout"),
+                        textColor: Color.fromARGB(255, 255, 0, 0),
+                        trailing: Icon(Icons.arrow_right),
+                        onTap: () {},
                       ),
                     ),
                   ],
