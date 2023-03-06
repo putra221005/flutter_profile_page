@@ -37,9 +37,10 @@ class _MyWidgetState extends State<ProfilePage> {
                 width: double.infinity,
                 height: 130,
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage("https://p4.wallpaperbetter.com/wallpaper/343/997/87/abstract-blue-artistic-cgi-wallpaper-preview.jpg"),
-                  fit: BoxFit.cover
-                  ),
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          "https://p4.wallpaperbetter.com/wallpaper/343/997/87/abstract-blue-artistic-cgi-wallpaper-preview.jpg"),
+                      fit: BoxFit.cover),
                 ),
                 child: Center(
                   child: Column(
